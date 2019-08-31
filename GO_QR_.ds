@@ -1,0 +1,552 @@
+/*
+ * Author       : shreeramzohocorp
+ * Generated on : 31-Aug-2019 02:57:22
+ * Version      : 1.0
+ */
+ application "GO QR "
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+	section Qr_Pages
+	{
+		displayname= "Qr Pages"
+		icon = "media-1-layers"
+		form QR_Page
+		{
+			displayname = "QR Page"
+			success message = "Qr Page Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			QR_Code
+			(
+    			type = text
+				displayname = "QR Code "
+				qrcode = true
+				show onload = true
+				camera = primary
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "design-design-dev"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Qr_Pages
+		{
+			displayName = "All Qr Pages"
+			show all rows from QR_Page    
+			(
+				QR_Code as "QR Code "
+			)
+			options
+			(
+				icon = "media-1-layers"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							QR_Code as "QR Code "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							QR_Code as "QR Code "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Landing_Pages
+	{
+		displayname= "Landing Pages"
+		icon = "media-1-layers"
+		form Landing_Page
+		{
+			displayname = "Landing Page"
+			success message = "Landing Page Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			From
+			(
+				type = picklist
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			To
+			(
+				type = picklist
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Coupons
+			(
+				type = picklist
+				values = {"SCUBEY10", "SCUBEY30", "SCUBEY50"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Date_Time
+			(
+    			type = datetime
+				displayname = "Date-Time"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fare
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Base_Price
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Base Price"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "design-design-dev"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	section Bus_Route_113
+	{
+		displayname= "Bus Route 113 "
+		icon = "tech-desktop"
+		form Bus_Route_113
+		{
+			displayname = "Bus Route 113 "
+			success message = "Data Added Successfully!"
+			field alignment = left
+			feature property = 32
+			No1
+			(
+				type = number
+				displayname = "No"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Bus_Route_113
+			(
+    			type = text
+				displayname = "Bus Route 113"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Bus_Route_113_Report
+		{
+			displayName = "Bus Route 113  Report"
+			show all rows from Bus_Route_113    
+			(
+				No1 as "No"
+				Bus_Route_113 as "Bus Route 113"
+			)
+			sort by
+			(
+				No1 ascending
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							No1 as "No"
+							Bus_Route_113 as "Bus Route 113"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							No1 as "No"
+							Bus_Route_113 as "Bus Route 113"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+
+
+
+	workflow
+	{
+		form
+		{
+			Qr_Reddirect as "Qr_Reddirect"
+			{
+    			type =  form
+				form = QR_Page
+				on add
+				{
+					actions 
+					{
+						on user input of QR_Code
+						(
+							try 
+										{
+											decode = zoho.encryption.base64Decode(input.QR_Code);
+											openUrl(decode,"same window");
+										}
+										 catch (e)
+										{	alert "QR Code is not Safe!!!";
+										}
+						)	
+					}
+				}
+			}
+			Landing_Page as "Landing_Page"
+			{
+    			type =  form
+				form = Landing_Page
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Date_Time = zoho.currenttime;
+										input.Fare = 10;
+										disable Date_Time;
+										disable Base_Price;
+										hide Base_Price;
+										disable Fare;
+						)	
+					}
+				}
+			}
+		}
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users.\n"
+				}
+			}
+	}
+
+	customize
+	{
+		
+		layout = "tab"
+		color = "black"
+		base theme = "professional"
+		new theme = 1
+		
+		icons = true
+		icons style = outline
+	}
+
+	
+}
