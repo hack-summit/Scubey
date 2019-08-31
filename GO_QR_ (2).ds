@@ -1,0 +1,1219 @@
+/*
+ * Author       : shreeramzohocorp
+ * Generated on : 31-Aug-2019 06:58:34
+ * Version      : 1.0
+ */
+ application "GO QR "
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+	section Qr_Pages
+	{
+		displayname= "Qr Pages"
+		icon = "media-1-layers"
+		form QR_Page
+		{
+			displayname = "QR Page"
+			success message = "Qr Page Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			QR_Code
+			(
+    			type = text
+				displayname = "QR Code "
+				qrcode = true
+				show onload = true
+				camera = primary
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "design-design-dev"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Qr_Pages
+		{
+			displayName = "All Qr Pages"
+			show all rows from QR_Page    
+			(
+				QR_Code as "QR Code "
+			)
+			options
+			(
+				icon = "media-1-layers"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							QR_Code as "QR Code "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							QR_Code as "QR Code "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Landing_Pages
+	{
+		displayname= "Landing Pages"
+		icon = "media-1-layers"
+		form Landing_Page
+		{
+			displayname = "Landing Page"
+			success message = "Landing Page Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have From
+			(
+				type = picklist
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have To
+			(
+				type = picklist
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Coupons
+			(
+				type = picklist
+				values = {"SCUBEY10", "SCUBEY30", "SCUBEY50"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Date_Time
+			(
+    			type = datetime
+				displayname = "Date-Time"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fare
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Base_Price
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Base Price"
+				private = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "design-design-dev"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	section Bus_Route_113
+	{
+		displayname= "Bus Route 113 "
+		icon = "tech-desktop"
+		form Bus_Route_113
+		{
+			displayname = "Bus Route 113 "
+			success message = "Data Added Successfully!"
+			field alignment = left
+			feature property = 32
+			No1
+			(
+				type = number
+				displayname = "No"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Bus_Route_113
+			(
+    			type = text
+				displayname = "Bus Route 113"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Bus_Route_113_Report
+		{
+			displayName = "Bus Route 113  Report"
+			show all rows from Bus_Route_113    
+			(
+				No1 as "No"
+				Bus_Route_113 as "Bus Route 113"
+			)
+			sort by
+			(
+				No1 ascending
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							No1 as "No"
+							Bus_Route_113 as "Bus Route 113"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							No1 as "No"
+							Bus_Route_113 as "Bus Route 113"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Your_Profile
+	{
+		displayname= "Your Profile"
+		icon = "media-1-focus-circle"
+		form Your_Profile
+		{
+			displayname = "Your Profile"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Age
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Blood_Group
+			(
+				type = picklist
+				displayname = "Blood Group"
+				values = {"A +", "A -", "B +", "B -", "AB +", "AB -", "O +", "O -", "A1 +", "A1 -", "A2 +", "A2 -", "A1B +", "A1B -", "A2B +", "A2B -", "ABO +", "ABO -"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone
+			(
+    			type = phonenumber
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Emergency_Contact_Number
+			(
+    			type = phonenumber
+				displayname = "Emergency Contact Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "media-1-focus-circle"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Your_Profile_Report
+		{
+			displayName = "Your Profile Report"
+			show all rows from Your_Profile    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Age
+				Email
+				Blood_Group as "Blood Group"
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Phone
+				Emergency_Contact_Number as "Emergency Contact Number"
+			)
+			options
+			(
+				icon = "media-1-camera-compact"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Age
+							Email
+							Blood_Group as "Blood Group"
+							Address
+							Phone
+							Emergency_Contact_Number as "Emergency Contact Number"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Age
+							Email
+							Blood_Group as "Blood Group"
+							Address
+							Phone
+							Emergency_Contact_Number as "Emergency Contact Number"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Wallets
+	{
+		icon = "shopping-wallet"
+		form Wallet
+		{
+			success message = "Wallet Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Wallet
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Wallet "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "shopping-wallet"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Wallets
+		{
+			displayName = "All Wallets"
+			show all rows from Wallet    
+			(
+				Wallet as "Wallet "
+			)
+			options
+			(
+				icon = "travel-world"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Wallet as "Wallet "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Wallet as "Wallet "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Feedback
+	{
+		icon = "tech-keyboard"
+		form Feedback
+		{
+			success message = "Feedback Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Multi_Line
+			(
+    			type = textarea
+				displayname = "Multi Line"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "tech-keyboard"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Feedback
+		{
+			displayName = "All Feedback"
+			show all rows from Feedback    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Multi_Line as "Multi Line"
+			)
+			options
+			(
+				icon = "travel-world"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Multi_Line as "Multi Line"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Multi_Line as "Multi Line"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+
+
+
+	workflow
+	{
+		form
+		{
+			Qr_Reddirect as "Qr_Reddirect"
+			{
+    			type =  form
+				form = QR_Page
+				on add
+				{
+					actions 
+					{
+						on user input of QR_Code
+						(
+							try 
+										{
+											decode = zoho.encryption.base64Decode(input.QR_Code);
+											openUrl(decode,"same window");
+										}
+										 catch (e)
+										{	alert "QR Code is not Safe!!!";
+										}
+						)	
+					}
+				}
+			}
+			Landing_Page as "Landing_Page"
+			{
+    			type =  form
+				form = Landing_Page
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Date_Time = zoho.currenttime;
+										input.Fare = 10;
+										disable Date_Time;
+										disable Base_Price;
+										hide Base_Price;
+										disable Fare;
+						)	
+					}
+				}
+			}
+			Coupons as "Coupons"
+			{
+    			type =  form
+				form = Landing_Page
+				on add or edit
+				{
+					actions 
+					{
+						on load
+						(
+							clear Coupons;
+										prevList = {"SCUBEY10","SCUBEY30","SCUBEY50"};
+										getPrevObject = Landing_Page[Added_User = zoho.loginuser].Coupons.getAll();
+										prevList.removeAll(getPrevObject);
+										input.Coupons:ui.add(prevList);
+						)	
+					}
+					actions 
+					{
+						on user input of Coupons
+						(
+							if(input.Coupons == "SCUBEY30")
+										{
+											input.Fare = input.Base_Price - input.Base_Price * 0.3;
+										}
+										else if(input.Coupons == "SCUBEY50")
+										{
+											input.Fare = input.Base_Price - input.Base_Price * 0.5;
+										}
+										else if(input.Coupons == "SCUBEY10")
+										{
+											input.Fare = input.Base_Price - input.Base_Price * 0.1;
+										}
+						)	
+					}
+				}
+			}
+			Your_Profile as "Your_Profile"
+			{
+    			type =  form
+				form = Your_Profile
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							sclist = Your_Profile[Added_User = zoho.loginuser].ID.getAll();
+										if(sclist.size() >= 2)
+										{
+											sclist.remove(1);
+											delete from Your_Profile[ID in sclist];
+										}
+										input.Name = Your_Profile[Added_User = zoho.loginuser].Name;
+										input.Blood_Group = Your_Profile[Added_User = zoho.loginuser].Blood_Group;
+										input.Emergency_Contact_Number = Your_Profile[Added_User = zoho.loginuser].Emergency_Contact_Number;
+										input.Email = Your_Profile[Added_User = zoho.loginuser].Email;
+										input.Age = Your_Profile[Added_User = zoho.loginuser].Age;
+										input.Phone = Your_Profile[Added_User = zoho.loginuser].Phone;
+										input.Address = Your_Profile[Added_User = zoho.loginuser].Address;
+						)	
+					}
+				}
+			}
+		}
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users.\n"
+				}
+			}
+	}
+
+	customize
+	{
+		
+		layout = "tab"
+		color = "black"
+		base theme = "professional"
+		new theme = 1
+		
+		icons = true
+		icons style = outline
+	}
+
+	
+}
