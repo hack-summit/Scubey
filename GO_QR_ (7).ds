@@ -1,0 +1,3540 @@
+/*
+ * Author       : shreeramzohocorp
+ * Generated on : 31-Aug-2019 23:41:50
+ * Version      : 1.0
+ */
+ application "GO QR "
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+	section Qr_Pages
+	{
+		displayname= "Qr Pages"
+		icon = "media-1-layers"
+		form QR_Page
+		{
+			displayname = "QR Page"
+			success message = "Qr Page Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			QR_Code
+			(
+    			type = text
+				displayname = "QR Code "
+				qrcode = true
+				show onload = true
+				camera = primary
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "design-design-dev"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Qr_Pages
+		{
+			displayName = "All Qr Pages"
+			show all rows from QR_Page    
+			(
+				QR_Code as "QR Code "
+			)
+			options
+			(
+				icon = "media-1-layers"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							QR_Code as "QR Code "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							QR_Code as "QR Code "
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Landing_Page
+	{
+		displayname= "Landing Page"
+		icon = "tech-desktop"
+		spreadsheet Your_report
+		{
+			displayName = "Your Landing Page Report"
+			show all rows from Landing_Page  [Added_User == zoho.loginuser]  
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				From
+				To
+				Coupons
+				Date_Time as "Date-Time"
+				Fare
+				Base_Price as "Base Price"
+			)
+			options
+			(
+				icon = "shopping-pos"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -3
+					datablock1
+					(
+			 			layout type = -3
+		     			title = "Overview"
+						fields
+						(
+							Name
+							From
+							To
+							Coupons
+							Date_Time as "Date-Time"
+							Fare
+							Base_Price as "Base Price"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							From
+							To
+							Coupons
+							Date_Time as "Date-Time"
+							Fare
+							Base_Price as "Base Price"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		list Landing_Page001_Report
+		{
+			displayName = "Landing Page Report"
+			show all rows from Landing_Page    
+			(
+				From
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Base_Price as "Base Price"
+				To
+				Coupons
+				Date_Time as "Date-Time"
+				Fare
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							From
+							Name
+							Base_Price as "Base Price"
+							To
+							Coupons
+							Date_Time as "Date-Time"
+							Fare
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							From
+							Name
+							Base_Price as "Base Price"
+							To
+							Coupons
+							Date_Time as "Date-Time"
+							Fare
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		form Landing_Page
+		{
+			displayname = "Landing Page"
+			success message = "Information submitted successfully !!!!"
+			field alignment = left
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have From
+			(
+				type = picklist
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have To
+			(
+				type = picklist
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Coupons
+			(
+				type = picklist
+				values = {"SCUBEY10", "SCUBEY30", "SCUBEY50"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Date_Time
+			(
+    			type = datetime
+				displayname = "Date-Time"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Fare
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Base_Price
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Base Price"
+				private = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	section Bus_Route_113
+	{
+		displayname= "Bus Route 113 "
+		icon = "tech-desktop"
+		form Bus_Route_113
+		{
+			displayname = "Bus Route 113 "
+			success message = "Data Added Successfully!"
+			field alignment = left
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			No1
+			(
+				type = number
+				displayname = "No"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Bus_Route_113
+			(
+    			type = text
+				displayname = "Bus Route 113"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Bus_Route_113_Report
+		{
+			displayName = "Bus Route 113  Report"
+			show all rows from Bus_Route_113    
+			(
+				No1 as "No"
+				Bus_Route_113 as "Bus Route 113"
+			)
+			sort by
+			(
+				No1 ascending
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							No1 as "No"
+							Bus_Route_113 as "Bus Route 113"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							No1 as "No"
+							Bus_Route_113 as "Bus Route 113"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Your_Profile
+	{
+		displayname= "Your Profile"
+		icon = "media-1-focus-circle"
+		form Your_Profile
+		{
+			displayname = "Your Profile"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Age
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Blood_Group
+			(
+				type = picklist
+				displayname = "Blood Group"
+				values = {"A +", "A -", "B +", "B -", "AB +", "AB -", "O +", "O -", "A1 +", "A1 -", "A2 +", "A2 -", "A1B +", "A1B -", "A2B +", "A2B -", "ABO +", "ABO -"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone
+			(
+    			type = phonenumber
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Emergency_Contact_Number
+			(
+    			type = phonenumber
+				displayname = "Emergency Contact Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "media-1-focus-circle"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Your_Profile_Report
+		{
+			displayName = "Your Profile Report"
+			show all rows from Your_Profile    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Age
+				Email
+				Blood_Group as "Blood Group"
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Phone
+				Emergency_Contact_Number as "Emergency Contact Number"
+			)
+			options
+			(
+				icon = "media-1-camera-compact"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Age
+							Email
+							Blood_Group as "Blood Group"
+							Address
+							Phone
+							Emergency_Contact_Number as "Emergency Contact Number"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Age
+							Email
+							Blood_Group as "Blood Group"
+							Address
+							Phone
+							Emergency_Contact_Number as "Emergency Contact Number"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Wallets
+	{
+		icon = "shopping-wallet"
+		spreadsheet Your_wallet_transactions
+		{
+			displayName = "Your Wallet Transactions"
+			show all rows from Wallet  [Added_User == zoho.loginuser]  
+			(
+				Fare as "Fare "
+				Balance
+			)
+			options
+			(
+				icon = "shopping-wallet"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -3
+					datablock1
+					(
+			 			layout type = -3
+		     			title = "Overview"
+						fields
+						(
+							Fare as "Fare "
+							Balance
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Fare as "Fare "
+							Balance
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		form Wallet
+		{
+			success message = "Wallet Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Fare
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Fare "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Balance
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			After_Deducting
+			(
+				type = INR
+				format = commadotindian
+				displayname = "After Deducting"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "shopping-wallet"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Wallets
+		{
+			displayName = "All Wallets"
+			show all rows from Wallet    
+			(
+				Balance
+				Fare as "Fare "
+				After_Deducting as "After Deducting"
+			)
+			options
+			(
+				icon = "travel-world"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Balance
+							Fare as "Fare "
+							After_Deducting as "After Deducting"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Balance
+							Fare as "Fare "
+							After_Deducting as "After Deducting"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Feedback
+	{
+		icon = "tech-keyboard"
+		form Feedback
+		{
+			success message = "Feedback Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Multi_Line
+			(
+    			type = textarea
+				displayname = "Multi Line"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "tech-keyboard"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Feedback
+		{
+			displayName = "All Feedback"
+			show all rows from Feedback    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Multi_Line as "Multi Line"
+			)
+			options
+			(
+				icon = "travel-world"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Multi_Line as "Multi Line"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Multi_Line as "Multi Line"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Monthly_Passes
+	{
+		displayname= "Monthly Passes"
+		icon = "media-1-ticket-76"
+		form Monthly_Passes
+		{
+			displayname = "Monthly Passes"
+			success message = "Monthly Passes Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have From1
+			(
+				type = picklist
+				displayname = "From"
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have To1
+			(
+				type = picklist
+				displayname = "To"
+				values  = Bus_Route_113.ID
+    			displayformat = [Bus_Route_113]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Valid_for
+			(
+				type = picklist
+				displayname = "Valid for"
+				values = {"1 Month", "3 Months", "6 Months", "12 Months"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Beginging_On
+			(
+    			type = date
+				displayname = "Beginging Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Price
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "media-1-volume-up"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Monthly_Passes
+		{
+			displayName = "All Monthly Passes"
+			show all rows from Monthly_Passes    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				From1 as "From"
+				To1 as "To"
+				Valid_for as "Valid for"
+				Price
+				Beginging_On as "Beginging Date"
+			)
+			options
+			(
+				icon = "business-progress"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Name
+							From1 as "From"
+							To1 as "To"
+							Valid_for as "Valid for"
+							Price
+							Beginging_On as "Beginging Date"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							From1 as "From"
+							To1 as "To"
+							Valid_for as "Valid for"
+							Price
+							Beginging_On as "Beginging Date"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		spreadsheet Your_Monthly_Passes
+		{
+			displayName = "Your Monthly Passes"
+			show all rows from Monthly_Passes  [Added_User == zoho.loginuser]  
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				From1 as "From"
+				To1 as "To"
+				Valid_for as "Valid for"
+				Beginging_On as "Beginging Date"
+				Price
+			)
+			options
+			(
+				icon = "health-notebook"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -3
+					datablock1
+					(
+			 			layout type = -3
+		     			title = "Overview"
+						fields
+						(
+							Name
+							From1 as "From"
+							To1 as "To"
+							Valid_for as "Valid for"
+							Beginging_On as "Beginging Date"
+							Price
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							From1 as "From"
+							To1 as "To"
+							Valid_for as "Valid for"
+							Beginging_On as "Beginging Date"
+							Price
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Recharge
+	{
+		icon = "tech-mobile-recharger-09"
+		form Recharge
+		{
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Currency
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Balance1
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Balance"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "tech-mobile-recharger-09"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		spreadsheet Your_Recharge_History
+		{
+			displayName = "Your Recharge History"
+			show all rows from Recharge    
+			(
+				Currency
+			)
+			options
+			(
+				icon = "shopping-mobile-touch"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -3
+					datablock1
+					(
+			 			layout type = -3
+		     			title = "Overview"
+						fields
+						(
+							Currency
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Currency
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		list Recharge_Report
+		{
+			displayName = "Recharge Report"
+			show all rows from Recharge    
+			(
+				Currency
+				ID
+				Added_Time as "Added Time"
+				Balance1 as "Balance"
+			)
+			options
+			(
+				icon = "ui-1-database"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Currency
+							ID
+							Added_Time as "Added Time"
+							Balance1 as "Balance"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Currency
+							Balance1 as "Balance"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Wallet_For_Mionthly_Passes
+	{
+		list Wallet_For_Mionthly_Passes_Report
+		{
+			displayName = "Wallet For Monthly Passes Report"
+			show all rows from Wallet_For_Monthly_Passes    
+			(
+				Fare as "Fare "
+				Balance
+				After_Deducting as "After Deducting"
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Fare as "Fare "
+							Balance
+							After_Deducting as "After Deducting"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Fare as "Fare "
+							Balance
+							After_Deducting as "After Deducting"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		form Wallet_For_Monthly_Passes
+		{
+			displayname = "Wallet For Monthly Passes"
+			success message = "Wallet Added Successfully"
+			field alignment = top
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Fare
+			(
+				type = INR
+				format = commadotindian
+				displayname = "Fare "
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Balance
+			(
+				type = INR
+				format = commadotindian
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			After_Deducting
+			(
+				type = INR
+				format = commadotindian
+				displayname = "After Deducting"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	section Sheet1
+	{
+		icon = "tech-desktop"
+		form Bus_route_V51
+		{
+			displayname = "Bus route V51"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Bus_Route_V51
+			(
+    			type = text
+				displayname = "Bus Route V51"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Bus_route_V51_Report
+		{
+			displayName = "Bus route V51 Report"
+			show all rows from Bus_route_V51    
+			(
+				Bus_Route_V51 as "Bus Route V51"
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Bus_Route_V51 as "Bus Route V51"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Bus_Route_V51 as "Bus Route V51"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Contact_Us
+	{
+		displayname= "Contact Us"
+		form Contact_Us
+		{
+			displayname = "Contact Us"
+			success message = "Contact message sent successfully. We'll respond to you very soon.!"
+			field alignment = left
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Contact_us_about_anything_related_to_our_company_or_services
+			(
+    			type = plaintext
+				value = "Contact us about anything related to our company or services.<div><br /></div><div>We&#39;ll do our best to get back to you as soon as possible.</div>"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix1
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name1
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name1
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix1
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Email
+			(
+    			type = email
+    			description
+    			[
+    				type = tooltip
+    			 	message = "Your Email ID where we can contact you."
+    			]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Subject_field
+			(
+    			type = text
+				displayname = "Subject"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Message
+			(
+    			type = richtext
+				height = 198px
+				toolbar = enable
+				[
+					style, strike-through, indent, font-color, background-color, remove-formatting, alignment, link, table, ruler, bullets-and-numbering, script-text, code, html, quote, 
+					font-size : {1, 2, 3, 4, 5, 6, 7},
+					font-family : {"Serif", "Arial", "Courier New", "Georgia", "Tahoma", "Times New Roman", "Trebuchet", "Verdana", "Comic Sans Ms"}
+				]
+    			description
+    			[
+    				type = tooltip
+    			 	message = "How can we help you?"
+    			]
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Send Message"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Contact_Us_Report
+		{
+			displayName = "Contact Requests"
+			show all rows from Contact_Us    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name1+""+prefix1+""+last_name1+""+suffix1]
+	 			)
+				Email
+				Subject_field as "Subject"
+				Message
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = 2
+					datablock1
+					(
+			 			layout type = 4
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Message
+							Subject_field as "Subject"
+							Email
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Name
+							Email
+							Subject_field as "Subject"
+							Message
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Thankyou_Pages
+	{
+		displayname= "Thankyou Pages"
+		icon = "media-1-layers"
+		form ThankYou_Page
+		{
+			displayname = "ThankYou Page"
+			success message = "Thankyou Page Added Successfully"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			plain
+			(
+    			type = plaintext
+				value = "<div style=\"text-align: center\"><font size=\"5\">THANK YOU FOR THE TRANSACTION</font></div><div style=\"text-align: center\"><font size=\"5\"><br /></font></div><div style=\"text-align: center\"><font size=\"3\">Your ticket has been generated in your email and report page for further reference.&nbsp;</font></div>"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "design-webpage"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Thankyou_Pages
+		{
+			displayName = "All Thankyou Pages"
+			show all rows from ThankYou_Page    
+			options
+			(
+				icon = "media-1-layers"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+
+
+
+	workflow
+	{
+		form
+		{
+			Qr_Reddirect as "Qr_Reddirect"
+			{
+    			type =  form
+				form = QR_Page
+				on add
+				{
+					actions 
+					{
+						on user input of QR_Code
+						(
+							try 
+										{
+											decode = zoho.encryption.base64Decode(input.QR_Code);
+											openUrl(decode,"same window");
+										}
+										 catch (e)
+										{	alert "QR Code is not Safe!!!";
+										}
+						)	
+					}
+				}
+			}
+			Your_Profile as "Your_Profile"
+			{
+    			type =  form
+				form = Your_Profile
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							sclist = Your_Profile[Added_User = zoho.loginuser].ID.getAll();
+										if(sclist.size() >= 2)
+										{
+											sclist.remove(1);
+											delete from Your_Profile[ID in sclist];
+										}
+										input.Name = Your_Profile[Added_User = zoho.loginuser].Name;
+										input.Blood_Group = Your_Profile[Added_User = zoho.loginuser].Blood_Group;
+										input.Emergency_Contact_Number = Your_Profile[Added_User = zoho.loginuser].Emergency_Contact_Number;
+										input.Email = Your_Profile[Added_User = zoho.loginuser].Email;
+										input.Age = Your_Profile[Added_User = zoho.loginuser].Age;
+										input.Phone = Your_Profile[Added_User = zoho.loginuser].Phone;
+										input.Address = Your_Profile[Added_User = zoho.loginuser].Address;
+						)	
+					}
+				}
+			}
+			Monthly_Passes as "Monthly Passes"
+			{
+    			type =  form
+				form = Monthly_Passes
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Beginging_On = zoho.currenttime;
+										input.Price = 100;
+										disable Price;
+										disable Beginging_On;
+						)	
+					}
+					actions 
+					{
+						on user input of Valid_for
+						(
+							if(input.Valid_for == "1 Month")
+										{
+											input.Price = 100;
+										}
+										else if(input.Valid_for == "3 Months")
+										{
+											input.Price = 250;
+										}
+										else if(input.Valid_for == "6 Months")
+										{
+											input.Price = 500;
+										}
+										else if(input.Valid_for == "12 Months")
+										{
+											input.Price = 1000;
+										}
+										disable Price;
+						)	
+					}
+					actions 
+					{
+						on user input of From1
+						(
+							try 
+										{
+											if(input.To1 == input.From1)
+											{
+												alert "Same Destination not allowed";
+											}
+										}
+										 catch (e)
+										{	info "Error ";
+										}
+						)	
+					}
+					actions 
+					{
+						on user input of To1
+						(
+							try 
+										{
+											if(input.To1 == input.From1)
+											{
+												alert "Same Destination not allowed";
+											}
+										}
+										 catch (e)
+										{	info "error";
+										}
+						)	
+					}
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "zoho.loginuserid"
+							subject : "Your seasonal ticket has been generated for ${Valid_for} month(s) !"
+							message : "<table class=\"es-content-body\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" align=\"center\">\n        <tbody>\n            <tr>\n                <td class=\"esd-structure es-p15t es-p15b es-p20r es-p20l\" style=\"background-color: rgb(255, 255, 255); background-position: center center;\" bgcolor=\"#ffffff\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-position: center center;\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"center\" class=\"esd-block-image\">\n                                                    <a target=\"_blank\" rel=\"noopener noreferrer\">\n                                                        <img class=\"adapt-img\" src=\"https://demo.stripocdn.email/content/guids/videoImgGuid/images/62471567143765102.png\" alt=\"\" style=\"display: block;\" width=\"150\">\n                                                    </a>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p15t es-p10b es-p20r es-p20l\" style=\"background-position: center center;\" align=\"left\">\n                    \n                    <table class=\"es-left\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\"><br>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                    <table class=\"es-right\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text es-m-txt-c\" align=\"right\">\n                                                    <p style=\"color: #333333;\">${Added_Time}&nbsp;</p>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p10b\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"600\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5b\" align=\"center\">\n                                                    <table width=\"100%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 1px solid rgb(239, 239, 239); background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p20t es-p20b es-p20r es-p20l\" style=\"background-position: center top;\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text\" align=\"center\">\n                                                    <h2>Thanks for choosing Go QR</h2><div style=\"text-align: center;\"><b style=\"caret-color: rgb(69, 69, 69); color: rgb(69, 69, 69); font-family: &quot;Helvetica Neue&quot;; font-size: 14px; text-size-adjust: auto;\">We have recently received your seasonal ticket request. We have generated a seasonal ticket from&nbsp;${From1} to ${To1}. This pass is available for ${Valid_for} month(s) starting from ${Beginging_On}. The total amount payed is&nbsp;${Price}. We hope to serve you again.</b></div>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5t es-p10b es-p40l\" align=\"center\"><br></td></tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p10t es-p10b es-p20r es-p20l\" style=\"background-position: center center;\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5t es-p5b\" align=\"center\">\n                                                    <table width=\"100%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 1px solid rgb(239, 239, 239); background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n        </tbody>\n    </table>\n\n\n    <table class=\"es-content-body\" style=\"background-color: rgb(51, 51, 51);\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#333333\" align=\"center\">\n        <tbody>\n            <tr>\n                <td class=\"esd-structure es-p20t es-p20b es-p20r es-p20l\" style=\"background-position: center center; background-color: rgb(255, 255, 255);\" bgcolor=\"#ffffff\" align=\"left\">\n                    \n                    <table class=\"es-left\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                        <tbody>\n                            <tr>\n                                <td class=\"es-m-p20b esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"center\" class=\"esd-block-image\">\n                                                    <a target=\"_blank\" rel=\"noopener noreferrer\"><img class=\"adapt-img\" src=\"https://demo.stripocdn.email/content/guids/00393375-5a34-4a5c-aca8-5a32d3425267/images/44711567142911106.png\" alt=\"\" style=\"display: block;\" width=\"200\"></a></td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                    <table class=\"es-right\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text es-m-txt-c\" bgcolor=\"transparent\">\n                                                    <p style=\"color: #c6c4c4;\"><br></p>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">From&nbsp;</h3>\n                                                    <p>${From1}<br></p>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">To</h3>\n                                                    <p></p>${To1}<h3></h3>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">Total :&nbsp;</h3><div>${Price}<br></div><div><br></div><div>Thanking you,</div><div>Seasonal Ticketing Team</div>\n                                                    <h3></h3>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </td>\n            </tr>\n        </tbody>\n    </table>"
+		
+		
+		
+						)
+					}
+				}
+			}
+			Money_Deduction as "Money_Deduction"
+			{
+    			type =  form
+				form = Wallet
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							try 
+										{
+											disable Fare;
+											disable Balance;
+											disable After_Deducting;
+											far = Landing_Page[Added_User = zoho.loginuser].Fare sort by Added_Time desc;
+											bal = Recharge[Added_User = zoho.loginuser].Currency sort by Added_Time desc;
+											input.Fare = far;
+											input.Balance = bal;
+											tot = bal - far;
+											input.After_Deducting = tot;
+											if(tot <= 0)
+											{
+												alert "Recharge Now";
+											}
+										}
+										 catch (e)
+										{	alert "Recharge Now";
+										}
+						)	
+					}
+					actions 
+					{
+						on success
+						(
+							try 
+										{
+											far = Landing_Page[Added_User = zoho.loginuser].Fare sort by Added_Time desc;
+											bal = Recharge[Added_User = zoho.loginuser].Currency sort by Added_Time desc;
+											input.Fare = far;
+											input.Balance = bal;
+											tot = bal - far;
+											insert into Recharge
+											[
+												Added_User=zoho.loginuser
+												Currency=tot
+											]
+										}
+										 catch (e)
+										{	info "Recharge now";
+										}
+						)	
+					}
+				}
+			}
+			Landing_Page1 as "Landing_Page"
+			{
+    			type =  form
+				form = Landing_Page
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Date_Time = zoho.currenttime;
+										input.Fare = 10;
+										disable Date_Time;
+										disable Base_Price;
+										hide Base_Price;
+										disable Fare;
+						)	
+					}
+					actions 
+					{
+						on user input of To
+						(
+							try 
+										{
+											fro = Bus_Route_113[ID == input.From].No1;
+											tom = Bus_Route_113[ID == input.To].No1;
+											if(tom == fro)
+											{
+												alert "Why do you even need a bus ??????";
+												reload;
+											}
+											else if(tom > fro)
+											{
+												tot = tom - fro;
+											}
+											else
+											{
+												tot = fro - tom;
+											}
+											if(tot <= 10)
+											{
+												input.Fare = 10;
+												input.Base_Price = 10;
+											}
+											else if(tot > 10 && tot <= 20)
+											{
+												input.Fare = 20;
+												input.Base_Price = 20;
+											}
+											else
+											{
+												input.Fare = 30;
+												input.Base_Price = 30;
+											}
+											disable Fare;
+										}
+										 catch (e)
+										{	info "Error";
+										}
+						)	
+					}
+					actions 
+					{
+						on user input of From
+						(
+							try 
+										{
+											fro = Bus_Route_113[ID == input.From].No1;
+											tom = Bus_Route_113[ID == input.To].No1;
+											if(tom == fro)
+											{
+												alert "Why do you even need a bus ??????";
+												reload;
+											}
+											else if(tom > fro)
+											{
+												tot = tom - fro;
+											}
+											else
+											{
+												tot = fro - tom;
+											}
+											if(tot <= 10)
+											{
+												input.Fare = 10;
+												input.Base_Price = 10;
+											}
+											else if(tot > 10 && tot <= 20)
+											{
+												input.Fare = 20;
+												input.Base_Price = 20;
+											}
+											else
+											{
+												input.Fare = 30;
+												input.Base_Price = 30;
+											}
+											disable Fare;
+										}
+										 catch (e)
+										{	info "Error";
+										}
+						)	
+					}
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "zoho.loginuserid"
+							subject : "Your bus ticket has been issued on ${Date_Time} !"
+							message : "<table class=\"es-content-body\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" align=\"center\">\n        <tbody>\n            <tr>\n                <td class=\"esd-structure es-p15t es-p15b es-p20r es-p20l\" style=\"background-color: rgb(255, 255, 255); background-position: center center;\" bgcolor=\"#ffffff\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-position: center center;\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"center\" class=\"esd-block-image\">\n                                                    <a target=\"_blank\" rel=\"noopener noreferrer\">\n                                                        <img class=\"adapt-img\" src=\"https://demo.stripocdn.email/content/guids/videoImgGuid/images/62471567143765102.png\" alt=\"\" style=\"display: block;\" width=\"150\">\n                                                    </a>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p15t es-p10b es-p20r es-p20l\" style=\"background-position: center center;\" align=\"left\">\n                    \n                    <table class=\"es-left\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text es-m-txt-c\" align=\"left\">\n                                                    <h3 style=\"color: #333333; font-size: 16px;\"><strong>Total:&nbsp;${Fare}</strong></h3>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                    <table class=\"es-right\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text es-m-txt-c\" align=\"right\">\n                                                    <p style=\"color: #333333;\">${Date_Time}&nbsp;</p>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p10b\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"600\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5b\" align=\"center\">\n                                                    <table width=\"100%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 1px solid rgb(239, 239, 239); background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p20t es-p20b es-p20r es-p20l\" style=\"background-position: center top;\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text\" align=\"center\">\n                                                    <h2>Thanks for choosing Go QR</h2>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5t es-p10b es-p40l\" align=\"center\">\n                                                    <table width=\"10%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 3px solid rgb(21, 173, 200); background: none 0% 0% repeat scroll rgba(0, 0, 0, 0); height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table><br>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td class=\"esd-block-text es-p5t\" align=\"center\">\n                                                    <p style=\"color: #333333;\">\n\n\n\n\n<style type=\"text/css\">\np.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #454545}\n</style>\n\n\n</p><p class=\"p1\"><font color=\"#000000\" size=\"3\"><b>Your bus ticket has been generated successfully on&nbsp;${Date_Time} from&nbsp;${From} to ${To}. The total amount paid is ${Fare}. Thank you for booking with us. Hoping to serve you on your next trip.</b></font></p><p class=\"p1\"><font color=\"#000000\" size=\"3\"><b><br></b></font></p>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p10t es-p10b es-p20r es-p20l\" style=\"background-position: center center;\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5t es-p5b\" align=\"center\">\n                                                    <table width=\"100%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 1px solid rgb(239, 239, 239); background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n        </tbody>\n    </table>\n\n\n    <table class=\"es-content-body\" style=\"background-color: rgb(51, 51, 51);\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#333333\" align=\"center\">\n        <tbody>\n            <tr>\n                <td class=\"esd-structure es-p20t es-p20b es-p20r es-p20l\" style=\"background-position: center center; background-color: rgb(255, 255, 255);\" bgcolor=\"#ffffff\" align=\"left\">\n                    \n                    <br><table class=\"es-left\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                        <tbody>\n                            <tr>\n                                <td class=\"es-m-p20b esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"center\" class=\"esd-block-image\">\n                                                    <a target=\"_blank\" rel=\"noopener noreferrer\"><img class=\"adapt-img\" src=\"https://demo.stripocdn.email/content/guids/00393375-5a34-4a5c-aca8-5a32d3425267/images/44711567142911106.png\" alt=\"\" style=\"display: block;\" width=\"200\"></a></td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                    <table class=\"es-right\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text es-m-txt-c\" bgcolor=\"transparent\">\n                                                    <p style=\"color: #c6c4c4;\"><br></p>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">From&nbsp;</h3>\n                                                    <p>${From}</p>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">To</h3>\n                                                    <p>${To}</p>\n                                                    <h3></h3>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">Total :&nbsp;${Fare}</h3><div><font size=\"3\">Thank you</font></div><div><font size=\"3\">Ticketing Team</font></div>\n                                                    <h3></h3>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </td>\n            </tr>\n        </tbody>\n    </table>"
+		
+		
+		
+						)
+					}
+				}
+			}
+			Coupons1 as "Coupons"
+			{
+    			type =  form
+				form = Landing_Page
+				on add or edit
+				{
+					actions 
+					{
+						on load
+						(
+							clear Coupons;
+										prevList = {"SCUBEY10","SCUBEY30","SCUBEY50"};
+										getPrevObject = Landing_Page[Added_User = zoho.loginuser].Coupons.getAll();
+										prevList.removeAll(getPrevObject);
+										input.Coupons:ui.add(prevList);
+						)	
+					}
+					actions 
+					{
+						on user input of Coupons
+						(
+							if(input.Coupons == "SCUBEY30")
+										{
+											input.Fare = input.Base_Price - input.Base_Price * 0.3;
+										}
+										else if(input.Coupons == "SCUBEY50")
+										{
+											input.Fare = input.Base_Price - input.Base_Price * 0.5;
+										}
+										else if(input.Coupons == "SCUBEY10")
+										{
+											input.Fare = input.Base_Price - input.Base_Price * 0.1;
+										}
+						)	
+					}
+				}
+			}
+			Feedback_workflow as "Feedback_workflow"
+			{
+    			type =  form
+				form = Feedback
+				on add
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "zoho.loginuserid"
+							subject : "Thank you for your feedback !"
+							message : "<table class=\"es-content-body\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" align=\"center\">\n        <tbody>\n            <tr>\n                <td class=\"esd-structure es-p15t es-p15b es-p20r es-p20l\" style=\"background-color: rgb(255, 255, 255); background-position: center center;\" bgcolor=\"#ffffff\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" style=\"background-position: center center;\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"center\" class=\"esd-block-image\">\n                                                    <a target=\"_blank\" rel=\"noopener noreferrer\">\n                                                        <img class=\"adapt-img\" src=\"https://demo.stripocdn.email/content/guids/videoImgGuid/images/62471567143765102.png\" alt=\"\" style=\"display: block;\" width=\"150\">\n                                                    </a>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p15t es-p10b es-p20r es-p20l\" style=\"background-position: center center;\" align=\"left\">\n                    \n                    <table class=\"es-left\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\"><br></td></tr></tbody></table>\n                    \n                    <table class=\"es-right\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text es-m-txt-c\" align=\"right\">\n                                                    <p style=\"color: #333333;\">${Added_Time}&nbsp;</p>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p10b\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"600\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5b\" align=\"center\">\n                                                    <table width=\"100%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 1px solid rgb(239, 239, 239); background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p20t es-p20b es-p20r es-p20l\" style=\"background-position: center top;\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-text\" align=\"center\">\n                                                    <h2>Thanks for choosing Go QR</h2>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5t es-p10b es-p40l\" align=\"center\"><pre style=\"text-align: center; box-sizing: border-box; margin-top: 0px; margin-right: 15px; margin-bottom: 0px; padding: 0.1px 0px 0px; border: 0px rgb(34, 49, 64); outline: 0px; font-size: 15px; vertical-align: baseline; background: transparent; font-family: inherit; text-shadow: none; overflow-wrap: break-word; white-space: pre-wrap;\" dir=\"auto\" class=\"zcmsgcnt textL\"><b>We have recently received your feedback regarding our application. We value your thoughts and strive to provide you with the best customer experience possible. We will look into your feedback and check if there is anything to follow up and update you with.</b></pre><pre style=\"text-align: center; box-sizing: border-box; margin-top: 0px; margin-right: 15px; margin-bottom: 0px; padding: 0.1px 0px 0px; border: 0px rgb(34, 49, 64); outline: 0px; font-size: 15px; vertical-align: baseline; background: transparent; font-family: inherit; text-shadow: none; overflow-wrap: break-word; white-space: pre-wrap;\" dir=\"auto\" class=\"zcmsgcnt textL\"><b><br></b></pre></td></tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n            <tr>\n                <td class=\"esd-structure es-p10t es-p10b es-p20r es-p20l\" style=\"background-position: center center;\" align=\"left\">\n                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"560\" valign=\"top\" align=\"center\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td class=\"esd-block-spacer es-p5t es-p5b\" align=\"center\">\n                                                    <table width=\"100%\" height=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n                                                        <tbody>\n                                                            <tr>\n                                                                <td style=\"border-bottom: 1px solid rgb(239, 239, 239); background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%; height: 1px; width: 100%; margin: 0px;\"></td>\n                                                            </tr>\n                                                        </tbody>\n                                                    </table>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </td>\n            </tr>\n        </tbody>\n    </table>\n\n\n    <table class=\"es-content-body\" style=\"background-color: rgb(51, 51, 51);\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" bgcolor=\"#333333\" align=\"center\">\n        <tbody>\n            <tr>\n                <td class=\"esd-structure es-p20t es-p20b es-p20r es-p20l\" style=\"background-position: center center; background-color: rgb(255, 255, 255);\" bgcolor=\"#ffffff\" align=\"left\">\n                    \n                    <table class=\"es-left\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\">\n                        <tbody>\n                            <tr>\n                                <td class=\"es-m-p20b esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"center\" class=\"esd-block-image\">\n                                                    <a target=\"_blank\" rel=\"noopener noreferrer\"><img class=\"adapt-img\" src=\"https://demo.stripocdn.email/content/guids/00393375-5a34-4a5c-aca8-5a32d3425267/images/44711567142911106.png\" alt=\"\" style=\"display: block;\" width=\"200\"></a></td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                    <table class=\"es-right\" cellspacing=\"0\" cellpadding=\"0\" align=\"right\">\n                        <tbody>\n                            <tr>\n                                <td class=\"esd-container-frame\" width=\"270\" align=\"left\">\n                                    <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\n                                        <tbody>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text es-m-txt-c\" bgcolor=\"transparent\">\n                                                    <p style=\"color: #c6c4c4;\"><br></p>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">From&nbsp;</h3>\n                                                    <p>Feedback Support Team</p>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\">To</h3>\n                                                    <p>${Name}<br></p>\n                                                    <h3></h3>\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td align=\"left\" class=\"esd-block-text\">\n                                                    <h3 style=\"font-family: helvetica, 'helvetica neue', arial, verdana, sans-serif;\"><br></h3>\n                                                    <h3></h3>\n                                                </td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                    \n                </td>\n            </tr>\n        </tbody>\n    </table>"
+		
+		
+		
+						)
+					}
+				}
+			}
+			Money_Deduction1 as "Money_Deduction"
+			{
+    			type =  form
+				form = Wallet_For_Monthly_Passes
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							try 
+										{
+											disable Fare;
+											disable Balance;
+											disable After_Deducting;
+											far = Monthly_Passes[Added_User = zoho.loginuser].Price sort by Added_Time desc;
+											bal = Recharge[Added_User = zoho.loginuser].Currency sort by Added_Time desc;
+											input.Fare = far;
+											input.Balance = bal;
+											tot = bal - far;
+											input.After_Deducting = tot;
+											if(tot <= 0)
+											{
+												alert "Recharge Now";
+											}
+										}
+										 catch (e)
+										{	alert "Recharge Now";
+										}
+						)	
+					}
+					actions 
+					{
+						on success
+						(
+							try 
+										{
+											far = Monthly_Passes[Added_User = zoho.loginuser].Price sort by Added_Time desc;
+											bal = Recharge[Added_User = zoho.loginuser].Currency sort by Added_Time desc;
+											input.Fare = far;
+											input.Balance = bal;
+											tot = bal - far;
+											insert into Recharge
+											[
+												Added_User=zoho.loginuser
+												Currency=tot
+											]
+										}
+										 catch (e)
+										{	info "Recharge now";
+										}
+						)	
+					}
+				}
+			}
+			Direct_to_Form_Properties as "Direct to - Form Properties"
+			{
+    			type =  presuccess
+				form = Monthly_Passes
+				on start
+				{
+					actions 
+					{
+						openURL("#Form:Wallet_For_Monthly_Passes","new window");
+					}
+				}
+			}
+			Direct_to_Form_Properties1 as "Direct to - Form Properties"
+			{
+    			type =  presuccess
+				form = Landing_Page
+				on start
+				{
+					actions 
+					{
+						openURL("#Form:Wallet","new window");
+					}
+				}
+			}
+			Recharge_Adding as "Recharge Adding"
+			{
+    			type =  form
+				form = Recharge
+				on add
+				{
+					actions 
+					{
+						on validate
+						(
+							lis = Recharge[Added_User = zoho.loginuser].ID.getAll();
+										if(lis.size() >= 1)
+										{
+											inp = Recharge[Added_User = zoho.loginuser].Currency sort by Added_Time desc;
+											insert into Recharge
+											[
+												Added_User=zoho.loginuser
+												Currency=inp + input.Currency
+											]
+										}
+						)	
+					}
+					actions 
+					{
+						on load
+						(
+							disable Balance1;
+										inp = Recharge[Added_User = zoho.loginuser].Currency sort by Added_Time desc;
+										input.Balance1 = inp;
+						)	
+					}
+				}
+			}
+			Contact_us as "Contact_us"
+			{
+    			type =  form
+				form = Contact_Us
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Email = zoho.loginuserid;
+										disable Email;
+						)	
+					}
+				}
+			}
+			Direct_to_Form_Properties2 as "Direct to - Form Properties"
+			{
+    			type =  presuccess
+				form = Wallet
+				on start
+				{
+					actions 
+					{
+						openURL("#Form:ThankYou_Page","new window");
+					}
+				}
+			}
+			Direct_to_Form_Properties3 as "Direct to - Form Properties"
+			{
+    			type =  presuccess
+				form = Wallet_For_Monthly_Passes
+				on start
+				{
+					actions 
+					{
+						openURL("#Form:ThankYou_Page","new window");
+					}
+				}
+			}
+			Thanks as "Thanks"
+			{
+    			type =  form
+				form = ThankYou_Page
+				on add
+				{
+					actions 
+					{
+						on validate
+						(
+							cancel submit;
+						)	
+					}
+				}
+			}
+		}
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:false}
+				description = "This profile will have read permission for all components\n"
+				ModulePermissions
+				{
+					Wallet_For_Monthly_Passes
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							After_Deducting{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Balance{visibility:true,readonly:false}
+							Fare{visibility:true,readonly:false}
+						}
+					}
+					ThankYou_Page
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							Section{visibility:true,readonly:false}
+							plain{visibility:true,readonly:false}
+						}
+					}
+					Bus_route_V51
+					{
+						FieldPermissions
+						{
+							Section{visibility:true,readonly:false}
+							Bus_Route_V51{visibility:true,readonly:false}
+						}
+					}
+					Wallet
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							After_Deducting{visibility:true,readonly:false}
+							Balance{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Fare{visibility:true,readonly:false}
+						}
+					}
+					QR_Page
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							Section{visibility:true,readonly:false}
+							QR_Code{visibility:true,readonly:false}
+						}
+					}
+					Recharge
+					{
+						enabled= Create,Tab 
+						ReportPermissions
+						{
+							Your_Recharge_History={"View"}
+						}
+						FieldPermissions
+						{
+							Balance1{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Currency{visibility:true,readonly:false}
+						}
+					}
+					Landing_Page
+					{
+						enabled= Create,Tab 
+						ReportPermissions
+						{
+							Your_report={"View"}
+						}
+						FieldPermissions
+						{
+							Date_Time{visibility:true,readonly:false}
+							Base_Price{visibility:true,readonly:false}
+							From{visibility:true,readonly:false}
+							To{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Coupons{visibility:true,readonly:false}
+							Name{visibility:true,readonly:false}
+							Fare{visibility:true,readonly:false}
+						}
+					}
+					Monthly_Passes
+					{
+						enabled= Create,Tab 
+						ReportPermissions
+						{
+							Your_Monthly_Passes={"View"}
+						}
+						FieldPermissions
+						{
+							Price{visibility:true,readonly:false}
+							To1{visibility:true,readonly:false}
+							From1{visibility:true,readonly:false}
+							Beginging_On{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Valid_for{visibility:true,readonly:false}
+							Name{visibility:true,readonly:false}
+						}
+					}
+					Your_Profile
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							Email{visibility:true,readonly:false}
+							Blood_Group{visibility:true,readonly:false}
+							Address{visibility:true,readonly:false}
+							Phone{visibility:true,readonly:false}
+							Emergency_Contact_Number{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Age{visibility:true,readonly:false}
+							Name{visibility:true,readonly:false}
+						}
+					}
+					Feedback
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							Multi_Line{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Name{visibility:true,readonly:false}
+						}
+					}
+					Contact_Us
+					{
+						enabled= Create,Tab 
+						FieldPermissions
+						{
+							Email{visibility:true,readonly:false}
+							Message{visibility:true,readonly:false}
+							Subject_field{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Contact_us_about_anything_related_to_our_company_or_services{visibility:true,readonly:false}
+							Name{visibility:true,readonly:false}
+						}
+					}
+					Bus_Route_113
+					{
+						FieldPermissions
+						{
+							No1{visibility:true,readonly:false}
+							Section{visibility:true,readonly:false}
+							Bus_Route_113{visibility:true,readonly:false}
+						}
+					}
+				}
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users.\n"
+				}
+			}
+	}
+
+	customize
+	{
+		
+		layout = "tab"
+		color = "black"
+		base theme = "professional"
+		new theme = 9
+		new theme color = 8
+		icons = true
+		icons style = outline
+	}
+
+	phone
+	{
+		section  Your_Profile
+		{
+			displayname= "Your Profile"
+			form  Your_Profile
+			{
+				layout = auto
+				icon = "media-1-focus-circle"
+			}
+			list Your_Profile_Report
+			{
+				icon = "media-1-camera-compact"
+			}
+		}
+		section  Qr_Pages
+		{
+			displayname= "Qr Pages"
+			form  QR_Page
+			{
+				layout = auto
+				icon = "design-design-dev"
+			}
+			list All_Qr_Pages
+			{
+				icon = "media-1-layers"
+			}
+		}
+		section  Landing_Page
+		{
+			displayname= "Landing Page"
+			form  Landing_Page
+			{
+				layout = left
+				hide = true
+			}
+			list Landing_Page001_Report
+			{
+				hide = true
+			}
+			spreadsheet Your_report
+			{
+				icon = "shopping-pos"
+			}
+		}
+		section  Bus_Route_113
+		{
+			displayname= "Bus Route 113 "
+			form  Bus_Route_113
+			{
+				layout = left
+				icon = "ui-1-bold-add"
+			}
+			list Bus_Route_113_Report
+			{
+			}
+		}
+		section  Wallets
+		{
+			form  Wallet
+			{
+				layout = auto
+				icon = "shopping-wallet"
+				hide = true
+			}
+			spreadsheet Your_wallet_transactions
+			{
+				icon = "shopping-wallet"
+			}
+			list All_Wallets
+			{
+				icon = "travel-world"
+			}
+		}
+		section  Feedback
+		{
+			form  Feedback
+			{
+				layout = auto
+				icon = "tech-keyboard"
+			}
+			list All_Feedback
+			{
+				icon = "travel-world"
+			}
+		}
+		section  Monthly_Passes
+		{
+			displayname= "Monthly Passes"
+			form  Monthly_Passes
+			{
+				layout = auto
+				icon = "media-1-volume-up"
+			}
+			list All_Monthly_Passes
+			{
+				icon = "business-progress"
+			}
+			spreadsheet Your_Monthly_Passes
+			{
+				icon = "health-notebook"
+			}
+		}
+		section  Recharge
+		{
+			form  Recharge
+			{
+				layout = auto
+				icon = "tech-mobile-recharger-09"
+			}
+			list Recharge_Report
+			{
+				icon = "ui-1-database"
+			}
+			spreadsheet Your_Recharge_History
+			{
+				icon = "shopping-mobile-touch"
+			}
+		}
+		section  Wallet_For_Mionthly_Passes
+		{
+			form  Wallet_For_Monthly_Passes
+			{
+				layout = left
+				hide = true
+			}
+			list Wallet_For_Mionthly_Passes_Report
+			{
+				hide = true
+			}
+		}
+		section  Sheet1
+		{
+			form  Bus_route_V51
+			{
+				layout = left
+				icon = "ui-1-bold-add"
+			}
+			list Bus_route_V51_Report
+			{
+			}
+		}
+		section  Contact_Us
+		{
+			displayname= "Contact Us"
+			form  Contact_Us
+			{
+				layout = left
+			}
+			list Contact_Us_Report
+			{
+			}
+		}
+		section  Thankyou_Pages
+		{
+			displayname= "Thankyou Pages"
+			form  ThankYou_Page
+			{
+				layout = auto
+				icon = "design-webpage"
+			}
+			list All_Thankyou_Pages
+			{
+				icon = "media-1-layers"
+			}
+		}
+		customize
+		{
+			colour = blue
+        	layout = onecolumncard
+		 	icons style = outline
+		}
+	}
+	
+}
